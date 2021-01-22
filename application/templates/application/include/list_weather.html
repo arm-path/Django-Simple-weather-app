@@ -1,9 +1,38 @@
 <h3>Information</h3>
 <div class="alert alert-success w-65">
-    <div><b>City: </b> London</div>
-    <div><b>Temperature: </b> 21.5<sup>o</sup></div>
+    <div class="row d-flex justify-content-between">
+        <div class="col-lg-4">
+            <div><b>City: </b> London</div>
+            <div><b>Temperature: </b> 21.5<sup>o</sup></div>
+        </div>
+        <div class="col-lg-4">
+            Comments: icon
+        </div>
+        <div class="col-lg-4 text-end">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+
+        </div>
+    </div>
 </div>
-<div class="alert alert-success w-65">
-    <div><b>City: </b> London</div>
-    <div><b>Temperature: </b> 21.5<sup>o</sup></div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteLabel">Are you sure?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="delete_city_id" class="form-control" style="display: none"/>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                    <button type="button" name="delete" value="True" class="btn btn-danger">Yes</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
