@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def initial_page(request):
+    """ Представление первоначальной страницы """
+    return render(request, 'application/initial_page.html', {})
