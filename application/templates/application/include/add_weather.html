@@ -4,8 +4,14 @@
         <form action="" method="POST">
             {% csrf_token %}
             <div class="mb-3">
-                <label class="form-label">Specify city</label>
-                <input type="text" class="form-control" placeholder="London">
+                <label for="{{forms.title.id_for_label}}" class="form-label">Specify city</label>
+                {{forms.title}}
+                {% if forms.title.errors or error_add%}
+                <small class="text-danger">
+                    <b><i>{{forms.title.errors}} {%if error_add %}<ul><li>{{error_add}}</li></ul> {% endif %}</i></b>
+
+                </small>
+                {% endif %}
             </div>
             <div class="d-grid gap-2">
                 <button type="submit" name="add" value="True" class="btn btn-secondary text-white">ADD</button>
